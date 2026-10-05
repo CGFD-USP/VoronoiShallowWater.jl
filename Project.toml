@@ -19,10 +19,10 @@ VoronoiOperators = "28deb5e7-6037-4488-9d39-5419413b6983"
 Zeros = "bd1ec220-6eb4-527a-9b49-e79c3db6233b"
 
 [sources]
-TensorsLite = {rev = "main", url = "https://github.com/favba/TensorsLite.jl"}
-TensorsLiteGeometry = {rev = "main", url = "https://github.com/favba/TensorsLiteGeometry.jl"}
-VoronoiMeshes = {rev = "main", url = "https://github.com/favba/VoronoiMeshes.jl"}
-VoronoiOperators = {rev = "main", url = "https://github.com/favba/VoronoiOperators.jl"}
+TensorsLite = { rev = "main", url = "https://github.com/favba/TensorsLite.jl" }
+TensorsLiteGeometry = { rev = "main", url = "https://github.com/CGFD-USP/TensorsLiteGeometry.jl" }
+VoronoiMeshes = { rev = "main", url = "https://github.com/CGFD-USP/VoronoiMeshes.jl" }
+VoronoiOperators = { rev = "main", url = "https://github.com/CGFD-USP/VoronoiOperators.jl" }
 
 [compat]
 LinearAlgebra = "1"
