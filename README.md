@@ -2,7 +2,7 @@
 
 `VoronoiShallowWater.jl` is a Shallow Water model that uses Voronoi Tesselation meshes.
 Spherical and planar bi-periodic meshes are supported.
-For planar bi-periodic Voronoi meshes creation see [VoronoiMeshes.jl](https://github.com/favba/VoronoiMeshes.jl)
+For planar bi-periodic Voronoi meshes creation see [VoronoiMeshes.jl](https://github.com/CGFD-USP/VoronoiMeshes.jl)
 
 ## Install Guide 
 
@@ -15,7 +15,7 @@ Pkg.activate(temp=true)
 Pkg.add(url="https://github.com/CGFD-USP/VoronoiShallowWater.jl.git")
 
 # Optional packages, for grid creation; plotting; import / export to NetCDF; and import / export to VTK.
-Pkg.add(url="https://github.com/favba/VoronoiMeshes.jl.git")
+Pkg.add(url="https://github.com/CGFD-USP/VoronoiMeshes.jl.git")
 Pkg.add("DelaunayTriangulation")
 Pkg.add("GLMakie")
 Pkg.add("NCDatasets")
@@ -28,9 +28,9 @@ If using Julia v1.10, then the unregistered dependencies must be explicitly inst
 import Pkg
 Pkg.activate(temp=true)
 Pkg.add(url="https://github.com/favba/TensorsLite.jl.git")
-Pkg.add(url="https://github.com/favba/TensorsLiteGeometry.jl.git")
-Pkg.add(url="https://github.com/favba/VoronoiMeshes.jl.git")
-Pkg.add(url="https://github.com/favba/VoronoiOperators.jl.git")
+Pkg.add(url="https://github.com/CGFD-USP/TensorsLiteGeometry.jl.git")
+Pkg.add(url="https://github.com/CGFD-USP/VoronoiMeshes.jl.git")
+Pkg.add(url="https://github.com/CGFD-USP/VoronoiOperators.jl.git")
 Pkg.add(url="https://github.com/CGFD-USP/VoronoiShallowWater.jl.git")
 
 # Optional packages, for grid creation; plotting; import / export to NetCDF; and import / export to VTK.
