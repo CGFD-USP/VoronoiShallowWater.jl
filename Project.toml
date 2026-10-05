@@ -1,0 +1,32 @@
+name = "VoronoiShallowWater"
+uuid = "40b2bd81-4873-4a71-b7f8-e279a7d86606"
+version = "0.1.0"
+authors = ["Felipe A. V. de Bragança Alves <github@mail.favba.org>"]
+
+[workspace]
+projects = ["test"]
+
+[deps]
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+NCDatasets = "85f8d34a-cbdd-5861-8df4-14fed0d494ab"
+Polyester = "f517fe37-dbe3-4b94-8317-1923a5111588"
+ReadVTK = "dc215faf-f008-4882-a9f7-a79a826fadc3"
+TOML = "fa267f1f-6049-4f14-aa54-33bafae1ed76"
+TensorsLite = "1a1b94bd-d244-45e0-965a-8acfeb92b70f"
+TensorsLiteGeometry = "f9cc0174-84f8-4243-a119-6cf6c33db921"
+VoronoiMeshes = "978c199f-fe38-4011-9fe6-317bc1cdd350"
+VoronoiOperators = "28deb5e7-6037-4488-9d39-5419413b6983"
+Zeros = "bd1ec220-6eb4-527a-9b49-e79c3db6233b"
+
+[sources]
+TensorsLite = {rev = "main", url = "https://github.com/favba/TensorsLite.jl"}
+TensorsLiteGeometry = {rev = "main", url = "https://github.com/favba/TensorsLiteGeometry.jl"}
+VoronoiMeshes = {rev = "main", url = "https://github.com/favba/VoronoiMeshes.jl"}
+VoronoiOperators = {rev = "main", url = "https://github.com/favba/VoronoiOperators.jl"}
+
+[compat]
+LinearAlgebra = "1"
+NCDatasets = "0.14"
+ReadVTK = "0.2"
+TOML = "1"
+Zeros = "0.5"
