@@ -89,3 +89,8 @@ energy_terms = true  # print the mean kinetic and available potential energy ter
 
 ```
 
+Available initial conditions (planar bi-periodic meshes): `"Zonal geostrophic balance"` and `"Stationary vortex"`,
+a cyclone in gradient-wind balance centred in the domain with depth deviation `-D*cos(π*r/(2*r0))^(2n)`, whose table
+form accepts `H`, `g`, `f` (default `2*sqrt(g*H)/x_period`), `radius_fraction` (radius of maximum wind over the
+x period, default 0.1), `u0` (maximum wind, default Rossby number 0.5) and `bump_power` (`n`, default 4).
+

@@ -91,6 +91,37 @@ const config_peixoto = TOML.parsefile("config-mesh-peixoto.toml")
 
 end
 
+@testset "Stationary vortex" begin
+
+    conf = merge(config_trisk, Dict{String, Any}("initial_condition" => "Stationary vortex"))
+
+    model = SWModel(conf)
+
+    m = model.mesh
+
+    h, u = create_initial_condition(conf, m)
+
+    @test length(h) == m.cells.n
+    @test length(u) == m.edges.n
+
+    g, f = model.constants.g, model.constants.f[1]
+
+    R = 0.1 * m.x_period
+    u0 = 0.5 * f * R
+
+    D, r0 = VoronoiShallowWater.cos_bump_vortex(u0, R, 4, g, f)
+
+    uθ(r) = r * VoronoiShallowWater.cos_bump_angular_velocity(r, D, r0, 4, g, f)
+
+    @test uθ(R) ≈ u0
+    @test uθ(0.99R) < u0 && uθ(1.01R) < u0
+
+    @test r0 < m.x_period / 2
+    @test -D <= minimum(h) < 0
+    @test maximum(abs, u) <= u0
+
+end
+
 function rk4_rhs_test((o1, o2), (i1, i2))
     o1 .= 2 # dy1 = 2; y1 = 2t
     o2 .=  2 .* sqrt.(i2) # dy2 = 2√y2 ; y2 = t²
