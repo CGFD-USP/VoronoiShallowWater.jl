@@ -122,6 +122,32 @@ end
 
 end
 
+@testset "Unstable jet" begin
+
+    conf = merge(config_trisk, Dict{String, Any}("initial_condition" => "Unstable jet"))
+
+    model = SWModel(conf)
+
+    m = model.mesh
+
+    h, u = create_initial_condition(conf, m)
+
+    @test length(h) == m.cells.n
+    @test length(u) == m.edges.n
+
+    g, f = model.constants.g, model.constants.f[1]
+
+    profile = VoronoiShallowWater.unstable_jet_depth_profile(50.0, 1000, g, f, m.y_period)
+
+    # the two jets carry opposite transports, so the balanced depth is periodic in y
+    @test abs(profile[end] - profile[1]) <= 1e-9 * maximum(abs, profile)
+
+    @test VoronoiShallowWater.unstable_jet_bumps(0.85, 0.75) ≈ 1
+    @test VoronoiShallowWater.unstable_jet_bumps(0.15, 0.25) ≈ 1
+    @test maximum(abs, u) <= 50.0
+
+end
+
 function rk4_rhs_test((o1, o2), (i1, i2))
     o1 .= 2 # dy1 = 2; y1 = 2t
     o2 .=  2 .* sqrt.(i2) # dy2 = 2√y2 ; y2 = t²

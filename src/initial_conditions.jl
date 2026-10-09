@@ -27,3 +27,5 @@ end
 include("zonal_geostrophic_balance.jl")
 
 include("stationary_vortex.jl")
+
+include("unstable_jet.jl")
