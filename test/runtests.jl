@@ -25,7 +25,7 @@ end
 
 @inline square(x) = x*x
 
-const config_trisk = TOML.parsefile("config-mesh.toml")
+const config_trisk = TOML.parsefile("config.toml")
 
 @testset "TRiSK Model" begin
 
@@ -58,7 +58,7 @@ const config_trisk = TOML.parsefile("config-mesh.toml")
 
 end
 
-const config_peixoto = TOML.parsefile("config-mesh-peixoto.toml")
+const config_peixoto = TOML.parsefile("config-peixoto.toml")
 
 @testset "Peixoto Model" begin
 
@@ -216,4 +216,53 @@ end
 
     # Base.Filesystem.rm(file_out)
 
+end
+
+@testset "TRiSK simulation" begin
+    run_simulation("config.toml")
+
+    @test isfile("output-trisk.nc")
+    rm("output-trisk.nc")
+end
+
+@testset "Peixoto simulation" begin
+    run_simulation("config-peixoto.toml")
+
+    @test isfile("output-peixoto.nc")
+    rm("output-peixoto.nc")
+end
+
+@testset "MPAS simulation" begin
+    run_simulation("config-mpas.toml")
+
+    @test isfile("output-mpas.nc")
+    rm("output-mpas.nc")
+end
+
+@testset "Consistent simulation" begin
+    run_simulation("config-consistent.toml")
+
+    @test isfile("output-consistent.nc")
+    rm("output-consistent.nc")
+end
+
+@testset "WConsistent simulation" begin
+    run_simulation("config-wconsistent.toml")
+
+    @test isfile("output-wconsistent.nc")
+    rm("output-wconsistent.nc")
+end
+
+@testset "LSq2 simulation" begin
+    run_simulation("config-lsq2.toml")
+
+    @test isfile("output-lsq2.nc")
+    rm("output-lsq2.nc")
+end
+
+@testset "WLSq2 simulation" begin
+    run_simulation("config-wlsq2.toml")
+
+    @test isfile("output-wlsq2.nc")
+    rm("output-wlsq2.nc")
 end

@@ -1,0 +1,25 @@
+model = "Peixoto"
+grid_file = "mesh_periodic_regular_nc256.vtu"  # Or "mesh_name.nc"
+grid_scale_factor = 4.003155589280872e7  # This is 2*pi*radius_earth. Default is not to perform any scaling.
+time_step = { CFL = 0.14, maximum_velocity = 100.0 }  # Or float for time in seconds.
+duration = "20_00:00:00"  # Or float (time in seconds)
+# initial_condition = "Zonal geostrophic balance" # Or table like below or string with netcdf file name
+
+[initial_condition]
+name = "Zonal geostrophic balance"
+H = 1.5e4  # Mean Height
+u0 = 55.0  # Zonal jet maximum velocity
+g = 9.80616  # Gravity acceleration
+f = 1.4584e-4  # Constant Coriolis parameter
+
+[output]
+file_name = "output-peixoto.nc"
+time = "05_00:00:00"  # Or float for time in seconds
+variables = ["h", "u", "velocity", "pv", "ke"]  # Default is ["u", "h"]
+precision = "Float32"  # Same as "single". Default is "Float64" ("double"). Also accepts "Float16" ("half")
+
+[summary]
+enabled = true
+steps = 20  # Write summary every `steps` steps.
+min_max = true  # print max and min of `u` and `h`.
+# energy_terms = true

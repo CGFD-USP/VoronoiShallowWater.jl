@@ -1,4 +1,4 @@
-model = "Peixoto"
+model = "WLSq2"
 grid_file = "mesh_periodic_regular_nc256.vtu"  # Or "mesh_name.nc"
 grid_scale_factor = 4.003155589280872e7  # This is 2*pi*radius_earth. Default is not to perform any scaling.
 time_step = { CFL = 0.14, maximum_velocity = 100.0 }  # Or float for time in seconds.
@@ -13,9 +13,9 @@ g = 9.80616  # Gravity acceleration
 f = 1.4584e-4  # Constant Coriolis parameter
 
 [output]
-file_name = "output.nc"
-time = "01_00:00:00"  # Or float for time in seconds
-variables = ["h", "u", "velocity", "pv", "ke"]  # Default is ["u", "h"]
+file_name = "output-wlsq2.nc"
+time = "05_00:00:00"  # Or float for time in seconds
+variables = ["h", "u", "velocity", "ke"]  # Default is ["u", "h"]
 precision = "Float32"  # Same as "single". Default is "Float64" ("double"). Also accepts "Float16" ("half")
 
 [summary]
